@@ -1,0 +1,26 @@
+<form bindsubmit="getFormId" class="comment-box" reportSubmit="reportSubmit">
+    <view class="comment-title">{{title}}</view>
+    <view class="comment-input">
+        <textarea focus bindinput="bindTextAreaChange" class="comment-input-info" maxlength="{{noteMaxLen}}" placeholder="留下您的精彩评论......" placeholderStyle="font-size:32rpx;" value="{{info}}"></textarea>
+        <view class="tip">{{noteNowLen}}/{{noteMaxLen}}</view>
+    </view>
+    <button bindgetuserinfo="getUserInfo" class="comment-btn" disabled="{{disabled}}" formType="submit" loading="{{loading}}" openType="getUserInfo" type="primary">
+    {{commentBtnText}}
+  </button>
+    <view class="comment-list-box">
+        <view class="comment-list-title" wx:if="{{myCommentData.length>0}}">我的留言</view>
+        <view class="comment-list" wx:for="{{myCommentData}}" wx:key="{{index}}">
+            <view class="comment-left">
+                <image src="{{item.avatarUrl}}"></image>
+            </view>
+            <view class="comment-right">
+                <text>{{item.username}}</text>
+                <text>{{item.comment}}</text>
+                <text bindtap="deleteComment" data-comment-id="{{item.commentId}}" data-index="{{index}}">删除</text>
+            </view>
+        </view>
+    </view>
+    <navigator openType="navigateBack">
+        <view class="come-back">返回文章</view>
+    </navigator>
+</form>

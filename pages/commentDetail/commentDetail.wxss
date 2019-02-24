@@ -1,0 +1,244 @@
+.bg {
+    background-color: #000000;
+    position: absolute;
+    z-index: -1;
+    height: 100rpx;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.backBtn {
+    position: fixed;
+    bottom: 20rpx;
+    left: 0;
+    background-color: #DD3131;
+    border-radius: 50rpx;
+    padding: 13rpx;
+    width: 185rpx;
+    margin: 0 auto;
+    text-align: center;
+    right: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.backBtn image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 10rpx;
+}
+
+.backBtn text {
+    color: #ffffff;
+    font-size: 42rpx;
+    margin-top: -4rpx;
+    display: block;
+}
+
+.box {
+    padding-bottom: 100rpx;
+    border-radius: 20rpx;
+    margin-top: 40rpx;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.title {
+    font-size: 40rpx;
+    display: flex;
+    justify-content: space-between;
+    padding: 15rpx 40rpx 0;
+    box-sizing: border-box;
+}
+
+.title .title-left {
+    display: flex;
+}
+
+.title image {
+    width: 70rpx;
+    height: 70rpx;
+}
+
+.title text:last-child {
+    padding: 5px 0;
+}
+
+.title-item {
+    width: 100%;
+    height: 60rpx;
+    line-height: 60rpx;
+    background-color: #f0f0f0;
+    color: #55595f;
+    font-size: 32rpx;
+    box-sizing: border-box;
+    padding-left: 20rpx;
+}
+
+.comment-list {
+    display: flex;
+    padding: 30rpx 40rpx;
+    box-sizing: border-box;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.comment-list .comment-left {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.comment-list .comment-left image {
+    width: 100%;
+    height: 100%;
+    border-radius: 12rpx;
+}
+
+.comment-list .comment-right {
+    margin-left: 20rpx;
+    width: 80%;
+}
+
+.comment-list .comment-right .username-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-list .comment-right .username-box text {
+    color: #6C6C6C;
+    font-size: 35rpx;
+    word-break: break-all;
+}
+
+.comment-list .comment-right .username-box .like {
+    display: flex;
+    align-items: center;
+}
+
+.comment-list .comment-right .username-box .like button {
+    padding: 20rpx;
+    margin: -20rpx;
+}
+
+.comment-list .comment-right .username-box .like .image-like {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 8rpx;
+}
+
+.comment-list .comment-right .username-box .like .image-reply {
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: 60rpx;
+}
+
+.comment-list .comment-right .username-box .like .like-active-text {
+    color: #b30505;
+}
+
+.comment-list .comment-right .message {
+    display: block;
+    overflow: visible;
+    line-height: 1.2;
+    font-size: 32rpx;
+    padding: 10rpx 0;
+}
+
+.comment-list .comment-right .moreReply {
+    display: block;
+    color: red;
+    font-size: 28rpx;
+    margin-top: 20rpx;
+}
+
+.comment-reply {
+    width: 590rpx;
+    display: flex;
+    padding-top: 30rpx;
+    margin-top: 30rpx;
+    border-top: 1px solid #f0f0f0;
+}
+
+.comment-reply .comment-left {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.comment-reply .comment-right {
+    width: 100%;
+}
+
+.comment-reply .comment-right .username {
+    padding-right: 40rpx;
+    box-sizing: border-box;
+}
+
+.comment-reply .comment-right .username text:first-child,.comment-reply .comment-right .username text:last-child {
+    font-weight: bold;
+    color: #000000;
+}
+
+.comment-reply .comment-right .message {
+    padding-right: 40rpx;
+    box-sizing: border-box;
+    padding: 10rpx 0;
+}
+
+.comment-reply .comment-right .like {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 10rpx;
+    padding-right: 50rpx;
+    padding-bottom: 30rpx;
+}
+
+.comment-reply .comment-right .like text {
+    color: #6C6C6C;
+    font-size: 35rpx;
+}
+
+.comment-reply .comment-right .like .image-like {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 8rpx;
+}
+
+.comment-reply .comment-right .like .image-reply {
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: 60rpx;
+}
+
+.comment-reply .comment-right .like .like-active-text {
+    color: #b30505;
+}
+
+.comment-reply .comment-right .allReply {
+    height: 70rpx;
+    line-height: 100rpx;
+    font-size: 33rpx;
+    color: red;
+    border-top: 1px solid #f0f0f0;
+}
+
+button {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: transparent;
+    line-height: 0;
+}
+
+button::after {
+    border: none;
+}
+
+.noData {
+    text-align: center;
+    padding: 20rpx 0;
+    color: #999999;
+}

@@ -1,0 +1,44 @@
+<refresh bind:ClickToRefresh="anotherBatch" isLoading="{{isFetching}}"></refresh>
+<navbar></navbar>
+<view id="content">
+    <view class="update-holder" wx:if="{{updated}}">已更新</view>
+    <view class="carousel-wrap" wx:if="{{carouselList.length}}">
+        <form bindsubmit="navigateTo" reportSubmit="reportSubmit">
+            <swiper autoplay="true" class="carousel" indicatorActiveColor="#fff" indicatorColor="#777" indicatorDots="true">
+                <swiper-item class="carousel-item" wx:for="{{carouselList}}" wx:key="item.id">
+                    <navigator appId="{{item.redirectId}}" openType="navigate" path="{{item.redirectPath}}" target="miniProgram">
+                        <button data-graphic-url="{{'/pages/graphic/graphic?id='+item.id}}" data-redirect-id="{{item.redirectId}}" data-redirect-path="{{item.redirectPath}}" formType="submit">
+                            <image class="slide-image" mode="aspectFill" src="{{item.cover}}"></image>
+                            <text>{{item.title}}</text>
+                        </button>
+                    </navigator>
+                </swiper-item>
+            </swiper>
+        </form>
+    </view>
+    <view bindscrolltolower="scrollToLower" class="list-wrap">
+        <form bindsubmit="navigateTo" reportSubmit="reportSubmit">
+            <view wx:for="{{graphics}}" wx:key="{{item.id}}">
+                <view class="graphic-item" wx:if="{{!(index>=6&&(index+1)%7==0)&&item.cover}}">
+                    <navigator appId="{{item.redirectId}}" openType="navigate" path="{{item.redirectPath}}" target="miniProgram">
+                        <button data-graphic-url="{{'/pages/graphic/graphic?id='+item.id}}" data-id="{{item.id}}" data-redirect-id="{{item.redirectId}}" data-redirect-path="{{item.redirectPath}}" data-title="{{item.title}}" formType="submit">
+                            <view class="image">
+                                <image mode="aspectFill" src="{{item.cover}}"></image>
+                            </view>
+                            <text class="title">{{item.title}}</text>
+                        </button>
+                    </navigator>
+                </view>
+                <view class="index-ad" data-id="ad2" id="i-ad-p-0" wx:if="{{index==1&&adControl['2']==='on'&&!adSelfFirst}}">
+                    <ad binderror="adError" bindload="adSuccess" data-id="{{adId['1']}}" data-key="{{index}}" unitId="{{adId['1']}}"></ad>
+                </view>
+                <adSelf adFirstList="{{adselfList[0]}}" adSelftId="{{adId[1]}}" bind:AdToRefresh="addZyAdSuccess" wx:if="{{index==1&&adSelfControl['2']==='on'&&adselfList[0].ad_img&&adSelfFirst}}"></adSelf>
+                <view class="index-ad" data-id="ad1" id="i-ad-p-{{(index-index%adControl.indexListGap)/adControl.indexListGap}}" wx:if="{{index>=6&&(index+1)%7==0&&adControl['1']==='on'&&!item.show}}">
+                    <ad binderror="adError" bindload="adSuccess" data-id="{{adId['2']}}" data-key="{{index}}" unitId="{{adId['2']}}"></ad>
+                </view>
+                <adSelf adFirstList="{{item}}" adSelftId="{{adId[0]}}" bind:AdToRefresh="addZyAdSuccess" wx:if="{{adSelfControl['1']==='on'&&item.ad_img&&item.show}}"></adSelf>
+            </view>
+        </form>
+        <view class="placeholder">{{emptyTips}}</view>
+    </view>
+</view>

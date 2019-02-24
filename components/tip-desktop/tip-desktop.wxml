@@ -1,0 +1,5 @@
+<view class="tips-text" wx:if="{{showTip}}">
+    <text bindtap="close">X</text>
+    <text>|</text>
+    <text>添加桌面抢先看</text>
+</view>

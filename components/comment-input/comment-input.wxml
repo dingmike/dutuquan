@@ -1,0 +1,14 @@
+<form bindsubmit="send" class="input-box" reportSubmit="reportSubmit">
+    <view class="replt-tip" wx:if="{{name}}">
+        <text>回复 {{name}} 的评论：</text>
+        <text bindtap="hiddenReply">取消回复</text>
+    </view>
+    <view class="input">
+        <button bindgetuserinfo="getUserInfo" openType="getUserInfo">
+            <input bindconfirm="send" bindinput="bindinput" confirmType="发送" cursorSpacing="12" focus="{{focus}}" placeholder="请输入评论" value="{{inputValue}}"></input>
+        </button>
+        <button formType="submit">
+            <text>发送</text>
+        </button>
+    </view>
+</form>

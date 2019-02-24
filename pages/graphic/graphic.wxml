@@ -1,0 +1,102 @@
+<canvas canvasId="myCanvas" id="canvas"></canvas>
+<view class="graphic-wrap" style="background:url({{bg_url}}) repeat-y;background-size:contain;">
+    <share-button share="{{is_share}}" wx:if="{{is_share}}"></share-button>
+    <view class="graphic-title">{{title}}</view>
+    <view bindtap="ctrlAudio" class="media {{isPlay?'':'anone'}}" wx:if="{{music_src}}">
+        <image class="pause {{isPlay?'none':''}}" src="../../assets/pauseMusic.png"></image>
+        <image src="../../assets/bgmBtn-fbd2dc.svg"></image>
+        <audio autoplay="true" bindended="bindended" bindtimeupdate="bindtimeupdate" id="myAudio" loop="true" src="{{music_src}}" wx:if="{{audioShow}}"></audio>
+    </view>
+    <view class="graphic-time">{{sinceTime+' 发布'}}</view>
+    <follow-button sinceTime="{{sinceTime+' 发布'}}"></follow-button>
+    <view bindtap="adCount" data-id="ad1" wx:if="{{adControl['1']==='on'&&!adSelfFirst}}">
+        <ad binderror="bindAderror" bindload="adSuccess" data-id="{{adId['1']}}" unitId="{{adId['1']}}"></ad>
+    </view>
+    <adSelf adFirstList="{{adselfList[0]}}" adSelftId="{{adId['1']}}" bind:AdToRefresh="addZyAdSuccess" wx:if="{{adSelfControl['2']==='on'&&adselfList[0].ad_img&&adSelfFirst}}"></adSelf>
+    <view class="graphic-content {{typography}}">
+        <block wx:if="{{graphicType==='1'}}">
+            <view class="graphic-item" wx:for="{{nodeList}}" wx:for-index="nodeIndex" wx:for-item="node" wx:key="{{nodeIndex}}">
+                <image bindtap="showPreviewImage" data-imgurl="{{node.url}}" mode="widthFix" src="{{node.url}}" wx:if="{{node.url&&node.url!==''}}"></image>
+                <text wx:if="{{node.text&&node.text!==''}}">{{node.text}}</text>
+            </view>
+        </block>
+        <view class="rich-text" wx:elif="{{graphicType==='2'}}">
+            <rich-text nodes="{{nodeList}}" type="text"></rich-text>
+        </view>
+        <view class="rich-text" wx:elif="{{graphicType==='3'}}">
+            <pictorial-temp content="{{nodeList}}"></pictorial-temp>
+        </view>
+        <view bindtap="adCount" class="ad" data-id="ad2" wx:if="{{adControl['2']==='on'&&cover&&!adSelfSecond}}">
+            <ad binderror="bindAderror" bindload="adSuccess" data-id="{{adId['2']}}" unitId="{{adId['2']}}"></ad>
+        </view>
+        <adSelf adFirstList="{{adselfList[1]}}" adSelftId="{{adId['2']}}" bind:AdToRefresh="addZyAdSuccess" wx:if="{{adSelfControl['2']==='on'&&cover&&adselfList[1].ad_img&&adSelfSecond}}"></adSelf>
+        <view class="graphic-end">-{{nodeList.length>0?'下方更精彩':'暂无内容'}}-</view>
+        <view class="graphic-btn-group">
+            <view bindtap="saveToFav" class="favourite">
+      收藏
+      </view>
+        </view>
+    </view>
+    <view wx:if="{{!hidefollowus&&subscription}}">
+        <follow-us-index followUs="{{followUs}}"></follow-us-index>
+    </view>
+    <view id="comment">
+        <view class="comment-box">
+            <view class="comment-title">
+                <text class="selective">精彩留言</text>
+                <navigator url="/pages/comment/comment?id={{id}}&&token={{token}}&&title={{title}}">
+                    <text>写留言</text>
+                </navigator>
+            </view>
+        </view>
+        <view class="comment-list-box">
+            <view class="comment-list" wx:for="{{commentData}}" wx:key="{{index}}">
+                <view class="comment-left">
+                    <image src="{{item.avatarUrl}}"></image>
+                </view>
+                <view class="comment-right">
+                    <view class="username-box">
+                        <text class="username">{{item.username}}</text>
+                        <view bindtap="like" class="like" data-id="{{item.id}}" data-index="{{index}}">
+                            <image src="../../assets/like.png" wx:if="{{!item.like}}"></image>
+                            <image src="../../assets/like-active.png" wx:if="{{item.like}}"></image>
+                            <text>{{item.good}}</text>
+                        </view>
+                    </view>
+                    <text class="message">{{item.comment}}</text>
+                </view>
+            </view>
+            <navigator url="/pages/commentDetail/commentDetail?id={{id}}&&token={{token}}&&title={{title}}" wx:if="{{commentDataAll!==0}}">
+                <view class="commentDataAll">查看全部{{commentDataAll}}条留言</view>
+            </navigator>
+            <view class="commentDataAll" wx:else>暂无相关留言</view>
+        </view>
+    </view>
+    <view bindscrolltolower="scrollToLower" class="recommand-list">
+        <view class="recommand-title">
+            <text class="titleText">推荐文章</text>
+        </view>
+        <form bindsubmit="navigateTo" reportSubmit="reportSubmit">
+            <view class="recommand-link" wx:for="{{recommandList}}" wx:for-item="rec" wx:key="{{rec.id}}">
+                <navigator appId="{{rec.redirectId}}" openType="navigate" path="{{rec.redirectPath}}" target="miniProgram" wx:if="{{!(index>10&&(index+1)%7==0)&&index!==6&&rec.cover}}">
+                    <button data-artic-id="{{rec.id}}" data-graphic-url="{{'/pages/graphic/graphic?id='+rec.id}}" data-redirect-id="{{rec.redirectId}}" data-redirect-path="{{rec.redirectPath}}" formType="submit" id="id{{rec.id}}">
+                        <image mode="aspectFill" src="{{rec.cover}}"></image>
+                        <view class="info">
+                            <text class="title">{{rec.title}}</text>
+                            <text class="time">{{rec.sinceTime}}</text>
+                        </view>
+                    </button>
+                </navigator>
+                <view wx:if="{{adControl['3']==='on'&&index==6&&!adSelfThird&&!rec.show}}">
+                    <ad binderror="bindAderror" bindload="adSuccess" data-id="{{adId['3']}}" data-key="{{index}}" unitId="{{adId['3']}}"></ad>
+                </view>
+                <adSelf adFirstList="{{adselfList[2]}}" adSelftId="{{adId['3']}}" bind:AdToRefresh="addZyAdSuccess" wx:if="{{adSelfControl['3']==='on'&&index==6&&adselfList[2]&&rec.show}}"></adSelf>
+                <view wx:if="{{adControl['3']==='on'&&index>10&&(index+1)%7==0&&!rec.show}}">
+                    <ad binderror="bindAderror" bindload="adSuccess" data-id="{{adId['3']}}" data-key="{{index}}" unitId="{{adId['3']}}"></ad>
+                </view>
+                <adSelf adFirstList="{{rec.adSelf}}" adSelftId="{{adId['3']}}" bind:AdToRefresh="addZyAdSuccess" wx:if="{{adSelfControl['3']==='on'&&index>10&&(index+1)%7==0&&rec.show&&rec.adSelf.ad_img}}"></adSelf>
+            </view>
+        </form>
+        <view class="placeholder">{{emptyTips}}</view>
+    </view>
+</view>

@@ -1,0 +1,85 @@
+<view class="bg"></view>
+<comment-input articId="{{id}}" id="comment-input" title="{{title}}" wx:if="{{id&&title}}"></comment-input>
+<view class="box">
+    <view class="commentDetail-box">
+        <view class="title">
+            <view class="title-left">
+                <navigator openType="navigateBack">
+                    <image src="../../assets/x.png"></image>
+                </navigator>
+                <text>全部{{commentDataAll}}条评论</text>
+            </view>
+        </view>
+        <view class="title-item">精选评论({{special_comments.length}})</view>
+        <view class="noData" wx:if="{{special_comments.length===0}}">暂无精选评论</view>
+        <view class="comment-list" wx:for="{{special_comments}}" wx:key="{{index}}">
+            <button bindgetuserinfo="getUserInfo" class="comment-left" data-comment-id="{{item.id}}" data-name="{{item.username}}" data-to-openid="{{item.to_openid}}" data-to-user="{{item.username}}" hoverClass="none" openType="getUserInfo">
+                <image src="{{item.avatarUrl}}"></image>
+            </button>
+            <view class="comment-right">
+                <view class="username-box">
+                    <text class="username">{{item.username}}</text>
+                    <view class="like">
+                        <image bindtap="like" class="image-like" data-id="{{item.id}}" data-index="{{index}}" data-special="special" src="../../assets/like.png" wx:if="{{!item.like}}"></image>
+                        <image bindtap="like" class="image-like" data-id="{{item.id}}" data-index="{{index}}" data-special="special" src="../../assets/like-active.png" wx:if="{{item.like}}"></image>
+                        <text class="{{item.like?'like-active-text':''}}">{{item.good}}</text>
+                        <button bindgetuserinfo="getUserInfo" data-comment-id="{{item.id}}" data-name="{{item.username}}" data-to-openid="{{item.to_openid}}" data-to-user="{{item.username}}" hoverClass="none" openType="getUserInfo">
+                            <image class="image-reply" data-index="{{index}}" src="../../assets/reply.png"></image>
+                        </button>
+                    </view>
+                </view>
+                <button bindgetuserinfo="getUserInfo" class="message" data-comment-id="{{item.id}}" data-name="{{item.username}}" data-to-openid="{{item.to_openid}}" data-to-user="{{item.username}}" hoverClass="none" openType="getUserInfo">{{item.comment}}</button>
+                <navigator url="/pages/commentReply/commentReply?articId={{id}}&&title={{title}}&&commentId={{item.id}}">
+                    <text class="moreReply" hoverClass="none" wx:if="{{item.response.length>0}}">查看回复</text>
+                </navigator>
+            </view>
+        </view>
+        <view class="title-item">评论({{commentDataAll-special_comments.length}})</view>
+        <view class="comment-list" wx:for="{{commentData}}" wx:key="{{index}}">
+            <button bindgetuserinfo="getUserInfo" class="comment-left" data-comment-id="{{item.id}}" data-name="{{item.username}}" data-to-openid="{{item.to_openid}}" data-to-user="{{item.username}}" hoverClass="none" openType="getUserInfo">
+                <image src="{{item.avatarUrl}}"></image>
+            </button>
+            <view class="comment-right">
+                <view class="username-box">
+                    <text class="username">{{item.username}}</text>
+                    <view class="like">
+                        <image bindtap="like" class="image-like" data-id="{{item.id}}" data-index="{{index}}" src="../../assets/like.png" wx:if="{{!item.like}}"></image>
+                        <image bindtap="like" class="image-like" data-id="{{item.id}}" data-index="{{index}}" src="../../assets/like-active.png" wx:if="{{item.like}}"></image>
+                        <text class="{{item.like?'like-active-text':'#'}}">{{item.good}}</text>
+                        <button bindgetuserinfo="getUserInfo" data-comment-id="{{item.id}}" data-name="{{item.username}}" data-to-openid="{{item.to_openid}}" data-to-user="{{item.username}}" hoverClass="none" openType="getUserInfo">
+                            <image class="image-reply" src="../../assets/reply.png"></image>
+                        </button>
+                    </view>
+                </view>
+                <button bindgetuserinfo="getUserInfo" class="message" data-comment-id="{{item.id}}" data-name="{{item.username}}" data-to-openid="{{item.to_openid}}" data-to-user="{{item.username}}" hoverClass="none" openType="getUserInfo">{{item.comment}}</button>
+                <view class="comment-reply" wx:if="{{reIndex===0}}" wx:for="{{item.response}}" wx:for-index="reIndex" wx:for-item="reItem" wx:key="{{reIndex}}">
+                    <button bindgetuserinfo="getUserInfo" class="comment-left" data-comment-id="{{item.id}}" data-name="{{reItem.from_user}}" data-to-openid="{{reItem.from_openid}}" data-to-user="{{reItem.from_user}}" hoverClass="none" openType="getUserInfo">
+                        <image src="{{reItem.avatarUrl}}"></image>
+                    </button>
+                    <view class="comment-right">
+                        <view class="username-box">
+                            <view class="username">
+                                <text>{{reItem.from_user}} </text>
+                                <text>回复 </text>
+                                <text>{{reItem.to_user}}</text>
+                            </view>
+                        </view>
+                        <button bindgetuserinfo="getUserInfo" class="message" data-comment-id="{{item.id}}" data-name="{{reItem.from_user}}" data-to-openid="{{reItem.from_openid}}" data-to-user="{{reItem.from_user}}" hoverClass="none" openType="getUserInfo">{{reItem.comment}}</button>
+                        <view class="like">
+                            <image bindtap="replyLike" class="image-like" data-id="{{reItem.id}}" data-index="{{index}}" data-re-index="{{reIndex}}" src="../../assets/like.png" wx:if="{{!reItem.like}}"></image>
+                            <image bindtap="replyLike" class="image-like" data-id="{{reItem.id}}" data-index="{{index}}" data-re-index="{{reIndex}}" src="../../assets/like-active.png" wx:if="{{reItem.like}}"></image>
+                            <text class="{{reItem.like?'like-active-text':'#'}}">{{reItem.good}}</text>
+                            <button bindgetuserinfo="getUserInfo" data-comment-id="{{item.id}}" data-name="{{reItem.from_user}}" data-to-openid="{{reItem.from_openid}}" data-to-user="{{reItem.from_user}}" hoverClass="none" openType="getUserInfo">
+                                <image class="image-reply" src="../../assets/reply.png"></image>
+                            </button>
+                        </view>
+                        <navigator hoverClass="none" url="/pages/commentReply/commentReply?articId={{id}}&&title={{title}}&&commentId={{item.id}}">
+                            <view class="allReply">查看全部回复</view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="noData" wx:if="{{noData}}">- 没有更多啦 -</view>
+    </view>
+</view>

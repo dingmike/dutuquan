@@ -1,0 +1,60 @@
+.follow-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding: 20rpx;
+    box-sizing: border-box;
+}
+
+.follow-button>view {
+    vertical-align: middle;
+}
+
+.follow-button .avatar {
+    flex-basis: 180rpx;
+    flex-grow: 0;
+    height: 180rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.follow-button .avatar image {
+    width: 100%;
+    height: 100%;
+}
+
+.follow-button .info {
+    flex-grow: 1;
+    flex-basis: 360rpx;
+    line-height: 32px;
+    padding: 0 15rpx;
+    color: #1c2438;
+    box-sizing: border-box;
+}
+
+.follow-button .info .name {
+    line-height: 1.5;
+    font-size: 42rpx;
+}
+
+.follow-button .info .time,.follow-button .info .tips {
+    line-height: 1.5;
+    color: #666;
+    font-size: 28rpx;
+}
+
+.follow-button .button {
+    flex-basis: 140rpx;
+}
+
+.follow-button .button button {
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 30rpx;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: 600;
+    background: rgb(240,45,28);
+}

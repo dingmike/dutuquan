@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "image-swiper": "../../components/image-swiper/image-swiper",
+        "tips-popup": "../../components/tips-popup/tips-popup",
+        "adSelf": "../../components/adSelf/adSelf"
+    }
+}

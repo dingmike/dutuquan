@@ -1,0 +1,483 @@
+button::after {
+    display: none;
+}
+
+.rich-text {
+    padding: 25rpx 20rpx 20rpx;
+    box-sizing: border-box;
+}
+
+.graphic-title {
+    padding: 20rpx 0 0;
+    margin: 0 25rpx 25rpx;
+    font-size: 58rpx;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.graphic-time {
+    margin: 0 20rpx 25rpx;
+    color: #666;
+    font-size: 28rpx;
+    text-align: right;
+}
+
+.graphic-content {
+    padding: 10rpx 0 0;
+}
+
+.graphic-content.left {
+    text-align: left;
+}
+
+.graphic-content.center {
+    text-align: center;
+}
+
+.graphic-content.right {
+    text-align: right;
+}
+
+.graphic-item {
+    margin-bottom: 40rpx;
+    font-size: 42rpx;
+}
+
+.graphic-item image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 15rpx 0;
+}
+
+.graphic-item text {
+    display: block;
+    line-height: 1.8;
+    letter-spacing: 0.1rem;
+    padding: 0 20rpx;
+    margin: 15rpx 0;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.graphic-end {
+    padding: 20rpx 0 40rpx;
+    font-size: 40rpx;
+    text-align: center;
+}
+
+.graphic-btn-group {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20rpx;
+}
+
+.favourite,.share {
+    display: block;
+    width: 40%;
+    padding: 15rpx 0;
+    margin: 0 auto 40rpx;
+    border-radius: 15rpx;
+    color: #fff;
+    font-size: 32rpx;
+    font-weight: 600;
+    text-align: center;
+    background-color: #e74c3c;
+}
+
+.share {
+    background: green;
+}
+
+.share button {
+    padding: 0;
+    color: #fff;
+    line-height: 1.2;
+    background: transparent;
+}
+
+.share button text {
+    border: none;
+    outline: none;
+}
+
+.recommand-list {
+    overflow: hidden;
+    padding: 0 14rpx;
+    box-sizing: border-box;
+}
+
+.recommand-list .recommand-title {
+    text-align: left;
+    font-size: 40rpx;
+    font-weight: bold;
+    color: #000000;
+    padding: 40rpx 0 40rpx;
+}
+
+.recommand-list .recommand-title .titleText::before {
+    content: '| ';
+    color: red;
+    font-size: 50rpx;
+}
+
+.recommand-link button {
+    display: flex;
+    height: 25vh;
+    margin: 15rpx 0;
+    border: none;
+    border-radius: 0;
+    background: none!important;
+    overflow: hidden;
+}
+
+.recommand-link button {
+    padding-left: 0!important;
+    padding-right: 0!important;
+    text-align: left;
+}
+
+.recommand-list .recommand-link:first-child button {
+    margin-top: 0;
+}
+
+.recommand-link image {
+    flex-basis: 50%;
+    width: 50%;
+    height: 100%;
+}
+
+.recommand-link .info {
+    position: relative;
+    flex-basis: 50%;
+    padding: 15rpx 10rpx;
+    font-size: 40rpx;
+    font-weight: 600;
+    line-height: 1.2;
+    box-sizing: border-box;
+}
+
+.recommand-link .info .title {
+    display: block;
+    max-height: 192rpx;
+    overflow: hidden;
+}
+
+.recommand-link .info .time {
+    position: absolute;
+    bottom: 15rpx;
+    left: 10rpx;
+    font-size: 28rpx;
+    font-weight: 500;
+}
+
+.placeholder {
+    width: 100%;
+    padding: 20rpx 0;
+    text-align: center;
+}
+
+.video-box {
+    width: 100%;
+    height: 420rpx;
+    margin: 20rpx 0;
+}
+
+.audio_area {
+    width: 96%;
+    margin: 50rpx auto 0;
+    border: 1px solid #ebebeb;
+    position: relative;
+}
+
+.audio_area .audio_body {
+    padding: 10px 10px 10px 5px;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.audio_area .audio_body .audio_btn {
+    border-radius: 50%;
+    border: 2px solid #00A600;
+    width: 32px;
+    height: 32px;
+    margin: 9px 10px 0 3px;
+    vertical-align: middle;
+}
+
+.audio_area .audio_body .audio_btn .icon_audio_default {
+    background: transparent url(https://mmbiz.qpic.cn/mmbiz_png/c9bc4aFeicREwV0F8IgCFicH9bJQykVzaao9sz6yQXk2ldXaKpHbmeibmX0NYZ6d0MiaAx0SyT28uGGBz1oNbxTD3g/0?wx_fmt=png) no-repeat 0 0;
+    width: 18px;
+    height: 25px;
+    vertical-align: middle;
+    display: inline-block;
+    background-size: 54px 25px;
+    background-position: -36px center;
+    margin-left: 6px;
+    margin-top: 3px;
+}
+
+.audio_area .audio_body .audio_btn .icon_audio_playing {
+    background: transparent url(https://mmbiz.qpic.cn/mmbiz_png/c9bc4aFeicREwV0F8IgCFicH9bJQykVzaao9sz6yQXk2ldXaKpHbmeibmX0NYZ6d0MiaAx0SyT28uGGBz1oNbxTD3g/0?wx_fmt=png) no-repeat 0 0;
+    width: 18px;
+    height: 25px;
+    vertical-align: middle;
+    display: inline-block;
+    background-size: 54px 25px;
+    animation: audio_playing 1s infinite;
+    background-position: 0px center;
+    margin-left: 6px;
+    margin-top: 2px;
+}
+
+.audio_area .audio_body .audio_content {
+    font-size: 33rpx;
+    width: 82%;
+}
+
+.audio_area .audio_body .audio_content .audio_title {
+    font-size: 35rpx;
+}
+
+.audio_area .audio_body .audio_content .audio_info {
+    overflow: hidden;
+    font-size: 27rpx;
+    color: #8c8c8c;
+}
+
+.audio_area .audio_body .audio_content .audio_info text:first-child {
+    float: left;
+}
+
+.audio_area .audio_body .audio_content .audio_info text:last-child {
+    float: right;
+}
+
+slider {
+    margin: 7px 0;
+    padding: 0;
+    display: block;
+}
+
+@-webkit-keyframes audio_playing {
+    30% {
+        background-position: 0px center;
+    }
+
+    31% {
+        background-position: -18px center;
+    }
+
+    61% {
+        background-position: -18px center;
+    }
+
+    61.5% {
+        background-position: -36px center;
+    }
+
+    100% {
+        background-position: -36px center;
+    }
+}
+
+@keyframes audio_playing {
+    30% {
+        background-position: 0px center;
+    }
+
+    31% {
+        background-position: -18px center;
+    }
+
+    61% {
+        background-position: -18px center;
+    }
+
+    61.5% {
+        background-position: -36px center;
+    }
+
+    100% {
+        background-position: -36px center;
+    }
+}
+
+.comment-box {
+    padding: 30rpx 14rpx;
+    box-sizing: border-box;
+}
+
+.comment-box .comment-title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 38rpx;
+}
+
+.comment-box .comment-title text {
+    font-size: 38rpx;
+}
+
+.comment-box .comment-title .selective {
+    font-weight: bold;
+}
+
+.comment-box .comment-title .selective::before {
+    content: '|';
+    color: red;
+    font-size: 45rpx;
+    margin-right: 20rpx;
+}
+
+.comment-box .comment-title text:last-child {
+    color: #E51C23;
+    vertical-align: middle;
+}
+
+.comment-list-box {
+    padding: 0 14rpx;
+    box-sizing: border-box;
+}
+
+.comment-list {
+    display: flex;
+    padding: 30rpx 0;
+}
+
+.comment-list .comment-left {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.comment-list .comment-left image {
+    width: 100%;
+    height: 100%;
+}
+
+.comment-list .comment-right {
+    margin-left: 20rpx;
+    width: 80%;
+}
+
+.comment-list .comment-right .username-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-list .comment-right text {
+    color: #6C6C6C;
+    font-size: 35rpx;
+    word-break: break-all;
+}
+
+.comment-list .comment-right .username-box .like image {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 8rpx;
+}
+
+.comment-list .comment-right .message {
+    color: #000000;
+}
+
+.comment-list-box .commentDataAll {
+    color: #E51C23;
+    text-align: center;
+    margin: 30rpx 0;
+    font-size: 35rpx;
+}
+
+#canvas {
+    width: 750rpx;
+    height: 600rpx;
+    visibility: hidden;
+    position: fixed;
+    top: -600rpx;
+    right: -750rpx;
+}
+
+.isBlackGround {
+    color: #fff!important;
+}
+
+@-webkit-keyframes circle {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes circle {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.media {
+    position: fixed;
+    top: 40rpx;
+    right: 20rpx;
+    z-index: 50;
+    height: 80rpx;
+    width: 80rpx;
+    animation: 3s linear 0s normal none infinite circle;
+}
+
+.media .pause {
+    position: absolute;
+    top: 16rpx;
+    left: 16rpx;
+}
+
+.media .pause {
+    height: 54rpx;
+    width: 54rpx;
+}
+
+.media .none {
+    height: 0rpx!important;
+    width: 0rpx!important;
+}
+
+.anone {
+    position: fixed;
+    top: 40rpx;
+    right: 20rpx;
+    z-index: 50;
+    height: 80rpx;
+    width: 80rpx;
+    animation: none!important;
+}
+
+.media image {
+    width: 100%;
+    height: 100%;
+}
+
+.returnIndex {
+    width: 506rpx;
+    height: 92rpx;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    margin-top: 30rpx;
+}
+
+.returnIndex image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 50rpx;
+}

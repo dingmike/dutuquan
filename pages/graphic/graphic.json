@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "follow-button": "../../components/follow-button/follow-button",
+        "image-swiper": "../../components/image-swiper/image-swiper",
+        "share-button": "../../components/share-button/share-button",
+        "tip-desktop": "../../components/tip-desktop/tip-desktop",
+        "pictorial-temp": "../../components/pictorial-temp/pictorial-temp",
+        "adSelf": "../../components/adSelf/adSelf"
+    },
+    "enablePullDownRefresh": true
+}

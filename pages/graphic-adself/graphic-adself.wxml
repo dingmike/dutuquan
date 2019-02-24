@@ -1,0 +1,29 @@
+<canvas canvasId="myCanvas" id="canvas"></canvas>
+<view class="{{font_color!==''?'graphic-wrap isBlackGround':'graphic-wrap'}}" style="background:url({{bg_url}}) repeat-y;background-size:contain;padding-bottom:50rpx;">
+    <shareTips bind:closeShareTip="closeShareTip" catchtouchmove="preventTouchMove" wx:if="{{shareTipsShow}}"></shareTips>
+    <view class="graphic-title">{{title}}</view>
+    <view class="{{font_color!==''?'graphic-time isBlackGround':'graphic-time'}}">{{sinceTime+' 发布'}}</view>
+    <view bindtap="ctrlAudio" class="media {{isPlay?'':'anone'}}" wx:if="{{music_src}}">
+        <image class="pause {{isPlay?'none':''}}" src="../../assets/pauseMusic.png"></image>
+        <image src="../../assets/bgmBtn-fbd2dc.svg"></image>
+        <audio autoplay="true" bindended="bindended" bindtimeupdate="bindtimeupdate" id="myAudio" loop="true" src="{{music_src}}" wx:if="{{audioShow}}"></audio>
+    </view>
+    <view class="graphic-content {{typography}}">
+        <block wx:if="{{graphicType==='1'}}">
+            <view class="graphic-item" wx:for="{{nodeList}}" wx:for-index="nodeIndex" wx:for-item="node" wx:key="{{nodeIndex}}">
+                <image bindtap="showPreviewImage" data-imgurl="{{node.url}}" mode="widthFix" src="{{node.url}}" wx:if="{{node.url&&node.url!==''}}"></image>
+                <text wx:if="{{node.text&&node.text!==''}}">{{node.text}}</text>
+            </view>
+        </block>
+        <view class="rich-text" wx:elif="{{graphicType==='2'}}">
+            <rich-text nodes="{{nodeList}}" type="text"></rich-text>
+        </view>
+        <view class="rich-text" wx:elif="{{graphicType==='3'}}">
+            <pictorial-temp content="{{nodeList}}"></pictorial-temp>
+        </view>
+    </view>
+    <adSelf adFirstList="{{ad_info}}" bind:AdToRefresh="addZyAdSuccess" class="ad_info"></adSelf>
+    <view bindtap="home" class="returnIndex">
+        <image mode="aspectFill" src="../../assets/return2.png"></image>
+    </view>
+</view>

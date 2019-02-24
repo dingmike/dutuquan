@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "share-button": "../../components/share-button/share-button",
+        "refresh": "../../components/refresh/refresh",
+        "navbar": "../../components/navbar/navbar",
+        "tip-desktop": "../../components/tip-desktop/tip-desktop",
+        "adSelf": "../../components/adSelf/adSelf"
+    },
+    "enablePullDownRefresh": true
+}

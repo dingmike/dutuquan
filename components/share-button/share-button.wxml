@@ -1,0 +1,23 @@
+<view class="share-button" wx:if="{{is_share==='1'}}">
+    <view class="home">
+        <button bindtap="home" openType="navigateBack" url="../../pages/index/index">
+            <image src="../../assets/home.png"></image>
+            <text>最新热文</text>
+        </button>
+    </view>
+    <view class="share">
+        <button openType="share">
+            <image src="../../assets/share.png"></image>
+            <text>转发给朋友</text>
+        </button>
+    </view>
+    <view class="share-tips" wx:if="{{showShareTips}}">喜欢这篇图文，转发给好友吧!</view>
+</view>
+<view class="share-button cancel-share" wx:else>
+    <view class="home">
+        <button bindtap="home" openType="navigateBack" url="../../pages/index/index">
+            <image src="../../assets/home.png"></image>
+            <text>最新热文</text>
+        </button>
+    </view>
+</view>

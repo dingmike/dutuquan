@@ -1,0 +1,27 @@
+<view id="content">
+    <view class="carousel-wrap" wx:if="{{carouselList.length}}">
+        <form bindsubmit="navigateTo" reportSubmit="reportSubmit">
+            <swiper autoplay="true" class="carousel" indicatorActiveColor="#fff" indicatorColor="#777" indicatorDots="true">
+                <swiper-item class="carousel-item" wx:for="{{carouselList}}" wx:key="item.id">
+                    <button data-graphic-url="{{'/pages/graphic/graphic?id='+item.id}}" data-image-url="{{item.cover}}" data-redirect-id="{{item.redirectId}}" data-redirect-path="{{item.redirectPath}}" formType="submit">
+                        <image class="slide-image" mode="aspectFill" src="{{item.cover}}"></image>
+                    </button>
+                </swiper-item>
+            </swiper>
+        </form>
+    </view>
+    <view bindscrolltolower="scrollToLower" class="list-wrap">
+        <form bindsubmit="navigateTo" reportSubmit="reportSubmit">
+            <view wx:for="{{graphics}}" wx:key="{{item.id}}">
+                <view class="graphic-item">
+                    <button data-graphic-url="{{'/pages/graphic/graphic?id='+item.id}}" data-image-url="{{item.cover}}" data-redirect-id="{{item.redirectId}}" data-redirect-path="{{item.redirectPath}}" formType="submit">
+                        <view class="image">
+                            <image mode="aspectFill" src="{{item.cover}}"></image>
+                        </view>
+                    </button>
+                </view>
+            </view>
+        </form>
+        <view class="placeholder">{{emptyTips}}</view>
+    </view>
+</view>

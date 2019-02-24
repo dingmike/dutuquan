@@ -1,0 +1,33 @@
+{
+    "pages": [
+        "pages/redirect/redirect",
+        "pages/index/index",
+        "pages/yuetu-index/yuetu-index",
+        "pages/graphic/graphic",
+        "pages/graphic-adself/graphic-adself",
+        "pages/webview/webview",
+        "pages/favourites/favourites",
+        "pages/comment/comment",
+        "pages/commentDetail/commentDetail",
+        "pages/commentReply/commentReply",
+        "components/comment-input/comment-input"
+    ],
+    "window": {
+        "backgroundTextStyle": "white",
+        "navigationBarBackgroundColor": "#DD3131",
+        "navigationBarTitleText": "阅图Lite",
+        "navigationBarTextStyle": "white"
+    },
+    "navigateToMiniProgramAppIdList": [
+        "wxa6687e9133dfe58a",
+        "wxc67523fd64350f39",
+        "wx6725f4d26ee858c6",
+        "wx653df02e02a2ca89",
+        "wxcb2e4a5116b1fee9",
+        "wx02a6be40deb8e62c",
+        "wx6f71ce6af492813d",
+        "wx551e162bf9bd4b55",
+        "wxc0638a0bcdaf88e5",
+        "wxbbfc1c35bf7093c0"
+    ]
+}

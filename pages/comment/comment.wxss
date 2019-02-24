@@ -1,0 +1,91 @@
+.comment-box {
+    width: 100%;
+}
+
+.comment-title {
+    box-sizing: border-box;
+    padding: 20rpx 40rpx 30rpx 10rpx;
+    font-size: 44rpx;
+}
+
+.comment-input {
+    position: relative;
+    box-sizing: border-box;
+    padding: 20rpx;
+    background-color: #f7f7f8;
+}
+
+.comment-input .comment-input-info {
+    width: 100%;
+    height: 300rpx;
+}
+
+.comment-btn {
+    width: 90%;
+    margin: 20rpx auto;
+    background-color: #04BE01!important;
+    color: #ffffff!important;
+}
+
+.come-back {
+    text-align: center;
+    color: #738197;
+    font-size: 34rpx;
+    margin-bottom: 40rpx;
+}
+
+.tip {
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+    color: #55595f;
+    font-size: 30rpx;
+}
+
+.comment-list-box {
+    padding: 20rpx 5%;
+    box-sizing: border-box;
+}
+
+.comment-list-box .comment-list-title {
+    font-size: 36rpx;
+    color: #55595f;
+    padding: 25rpx 0;
+}
+
+.comment-list {
+    display: flex;
+    padding: 30rpx 0;
+}
+
+.comment-list .comment-left {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.comment-list .comment-left image {
+    width: 100%;
+    height: 100%;
+}
+
+.comment-list .comment-right {
+    margin-left: 20rpx;
+    width: 80%;
+}
+
+.comment-list .comment-right text {
+    display: block;
+    font-size: 40rpx;
+    word-break: break-all;
+}
+
+.comment-list .comment-right text:first-child {
+    color: #55595f;
+    font-size: 35rpx;
+}
+
+.comment-list .comment-right text:last-child {
+    color: #738197;
+    font-size: 32rpx;
+    margin-top: 10rpx;
+}

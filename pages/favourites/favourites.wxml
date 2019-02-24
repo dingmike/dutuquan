@@ -1,0 +1,31 @@
+<navbar></navbar>
+<view class="favourites-wrap">
+    <view wx:if="{{adControl['1']=='on'}}">
+        <ad unitId="adunit-a71117b3533b570c"></ad>
+    </view>
+    <view class="favourites-list">
+        <view class="favourites-link" wx:for="{{favourites}}" wx:for-item="fav" wx:key="{{fav.id}}">
+            <navigator openType="navigate" url="{{'/pages/graphic/graphic?id='+fav.id}}">
+                <image mode="aspectFill" src="{{fav.cover}}"></image>
+                <view class="info">
+                    <text class="title">{{fav.title}}</text>
+                    <text class="save-time">收藏时间：{{fav.saveTime}}</text>
+                </view>
+            </navigator>
+            <view class="favourites-btn">
+                <view bindtap="deleteFavourite" class="delete" data-id="{{fav.id}}">
+                    <text>删除</text>
+                </view>
+                <view class="share">
+                    <button data-cover="{{fav.cover}}" data-path="{{'/pages/graphic/graphic?id='+fav.id}}" data-title="{{fav.title}}" openType="share">
+                        <text>分享</text>
+                    </button>
+                </view>
+            </view>
+        </view>
+        <view class="nofav" wx:if="{{favourites.length===0}}">暂无收藏</view>
+    </view>
+    <view wx:if="{{adControl['2']==='on'}}">
+        <ad unitId="adunit-a71117b3533b570c"></ad>
+    </view>
+</view>

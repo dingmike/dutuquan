@@ -1,0 +1,3 @@
+<view bindtap="refreshClick" class="refresh">
+    <image src="../../assets/rect1.png" style="{{'transform: rotate('+rotate+'deg)'}}"></image>
+</view>

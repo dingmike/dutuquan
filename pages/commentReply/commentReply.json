@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+        "comment-input": "../../components/comment-input/comment-input"
+    }
+}

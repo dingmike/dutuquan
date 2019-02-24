@@ -1,0 +1,61 @@
+<view class="bg"></view>
+<comment-input articId="{{id}}" id="comment-input" title="{{title}}"></comment-input>
+<view class="box">
+    <view class="commentDetail-box">
+        <view class="title">
+            <view class="title-left">
+                <navigator openType="navigateBack">
+                    <image src="../../assets/x.png"></image>
+                </navigator>
+                <text>回复详情</text>
+            </view>
+        </view>
+        <view class="title-item">评论信息</view>
+        <view class="comment-list" wx:for="{{commentData}}" wx:key="{{index}}">
+            <button bindgetuserinfo="getUserInfo" class="comment-left" data-comment-id="{{commentId}}" data-name="{{item.username}}" data-to-openid="{{item.to_openid}}" data-to-user="{{item.username}}" openType="getUserInfo">
+                <image src="{{item.avatarUrl}}"></image>
+            </button>
+            <view class="comment-right">
+                <view class="username-box">
+                    <view class="username">
+                        <text>{{item.username}}</text>
+                    </view>
+                </view>
+                <button bindgetuserinfo="getUserInfo" class="message" data-comment-id="{{commentId}}" data-name="{{item.username}}" data-to-openid="{{item.to_openid}}" data-to-user="{{item.username}}" openType="getUserInfo">{{item.comment}}</button>
+                <view class="like">
+                    <image bindtap="like" class="image-like" data-id="{{item.id}}" data-index="{{index}}" src="../../assets/like.png" wx:if="{{!item.like}}"></image>
+                    <image bindtap="like" class="image-like" data-id="{{item.id}}" data-index="{{index}}" src="../../assets/like-active.png" wx:if="{{item.like}}"></image>
+                    <text class="{{item.like?'like-active-text':''}}">{{item.good}}</text>
+                    <button bindgetuserinfo="getUserInfo" data-comment-id="{{commentId}}" data-name="{{item.username}}" data-to-openid="{{item.to_openid}}" data-to-user="{{item.username}}" hoverClass="none" openType="getUserInfo">
+                        <image class="image-reply" src="../../assets/reply.png"></image>
+                    </button>
+                </view>
+            </view>
+        </view>
+        <view class="title-item">所有回复({{count}})</view>
+        <view class="comment-list" wx:for="{{commentDataReply}}" wx:key="{{index}}">
+            <button bindgetuserinfo="getUserInfo" class="comment-left" data-comment-id="{{commentId}}" data-name="{{item.from_user}}" data-to-openid="{{item.to_openid}}" data-to-user="{{item.from_user}}" hoverClass="none" openType="getUserInfo">
+                <image src="{{item.avatarUrl}}"></image>
+            </button>
+            <view class="comment-right">
+                <view class="username-box">
+                    <view class="username">
+                        <text>{{item.from_user}}</text>
+                        <text>回复了</text>
+                        <text>{{item.to_user}}</text>
+                    </view>
+                </view>
+                <button bindgetuserinfo="getUserInfo" class="message" data-comment-id="{{commentId}}" data-name="{{item.from_user}}" data-to-openid="{{item.to_openid}}" data-to-user="{{item.from_user}}" hoverClass="none" openType="getUserInfo">{{item.comment}}</button>
+                <view class="like">
+                    <image bindtap="replyLike" class="image-like" data-id="{{item.id}}" data-index="{{index}}" src="../../assets/like.png" wx:if="{{!item.like}}"></image>
+                    <image bindtap="replyLike" class="image-like" data-id="{{item.id}}" data-index="{{index}}" src="../../assets/like-active.png" wx:if="{{item.like}}"></image>
+                    <text class="{{item.like?'like-active-text':''}}">{{item.good}}</text>
+                    <button bindgetuserinfo="getUserInfo" data-comment-id="{{commentId}}" data-name="{{item.from_user}}" data-to-openid="{{item.to_openid}}" data-to-user="{{item.from_user}}" hoverClass="none" openType="getUserInfo">
+                        <image class="image-reply" src="../../assets/reply.png"></image>
+                    </button>
+                </view>
+            </view>
+        </view>
+        <view class="noData" wx:if="{{noData}}">- 没有更多啦 -</view>
+    </view>
+</view>

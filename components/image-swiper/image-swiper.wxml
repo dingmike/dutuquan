@@ -1,0 +1,19 @@
+<swiper bindchange="_swiperChange" class="image-swiper" current="{{swiperIndex}}">
+    <swiper-item class="image-swiper-item" wx:for="{{imgList}}" wx:for-item="img" wx:key="{{index}}">
+        <view class="image-swiper-img">
+            <image bindtap="_showImage" mode="aspectFit" src="{{img.url}}"></image>
+        </view>
+    </swiper-item>
+    <swiper-item class="image-swiper-item">
+        <view class="image-swiper-img">
+            <image mode="aspectFit" src="../../assets/next-graphic.png"></image>
+        </view>
+    </swiper-item>
+</swiper>
+<view class="image-swiper-count">{{sliderIndex+1}}/{{imgList.length+1}}</view>
+<view class="image-swiper-indicator">
+    <slider activeColor="#2d8cf0" backgroundColor="#e9eaec" bindchange="_sliderChange" bindchanging="_sliderChanging" max="{{imgList.length}}" min="0" step="1" value="{{sliderIndex}}"></slider>
+</view>
+<view class="image-swiper-text">
+    <text>{{activeText}}</text>
+</view>

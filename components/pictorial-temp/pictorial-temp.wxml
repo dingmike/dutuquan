@@ -1,0 +1,113 @@
+<template name="sequence">
+    <view class="sequence_body">
+        <view class="sequence_num">{{item.name}}</view>
+        <view class="sequence_text" wx:for="{{item.text}}" wx:key="{{index}}">{{item}}</view>
+        <view class="sequence_bottom"></view>
+    </view>
+</template>
+<template name="emojiRight2">
+    <view class="section_right expression_right">
+        <view class="sectionName sectionName_right" wx:if="{{item.name&&item.firstFlag}}">{{item.name}}</view>
+        <view class="sectionText sectionText_right">
+            <view class="section_right_img" style="background-color: {{item.color}};">
+                <image class="expressionPic" src="{{item.img}}"></image>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="emojiLeft2">
+    <view class="section_left expression_left">
+        <view class="sectionName sectionName_left" wx:if="{{item.name&&item.firstFlag}}">{{item.name}}</view>
+        <view class="sectionText sectionText_left">
+            <view class="section_left_img" style="background-color: {{item.color}}">
+                <image class="expressionPic" src="{{item.img}}"></image>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="emojiRight">
+    <view class="section_right expression_right" style="background-image: {{item.url}}">
+        <view class="sectionName sectionName_right" wx:if="{{item.name&&item.firstFlag}}">{{item.name}}</view>
+        <view class="sectionText sectionText_right" style="background-image: {{item.triangle}}">
+            <view class="section_right_img" style="background-color: {{item.color}};">
+                <image class="expressionPic" src="{{item.img}}"></image>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="emojiLeft">
+    <view class="section_left expression_left" style="background-image: {{item.url}}">
+        <view class="sectionName sectionName_left" wx:if="{{item.name&&item.firstFlag}}">{{item.name}}</view>
+        <view class="sectionText sectionText_left" style="background-image: {{item.triangle}}">
+            <view class="section_left_img" style="background-color: {{item.color}}">
+                <image class="expressionPic" src="{{item.img}}"></image>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="imageTwo">
+    <view class="body_center_img">
+        <image bindtap="previewImg" class="img_demo_img" data-list="{{item.imgList}}" data-src="{{item.src}}" mode="widthFix" src="{{item.src}}"></image>
+    </view>
+</template>
+<template name="imageOne">
+    <view class="body_center_img">
+        <image bindtap="previewImg" class="img_demo_img" data-list="{{item.imgList}}" data-src="{{item.src}}" mode="widthFix" src="{{item.src}}"></image>
+    </view>
+</template>
+<template name="textRight2">
+    <view class="section_right">
+        <view class="sectionName sectionName_right" wx:if="{{item.name&&item.firstFlag}}">{{item.name}}</view>
+        <view class="sectionText sectionText_right">
+            <view class="section_right_p" style="background-color: {{item.color}};">
+                <view wx:for="{{item.text}}" wx:key="{{index}}">{{item}}</view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="textLeft2">
+    <view class="section_left">
+        <view class="sectionName sectionName_left" wx:if="{{item.name&&item.firstFlag}}">{{item.name}}</view>
+        <view class="sectionText sectionText_left">
+            <view class="section_left_p" style="background-color: {{item.color}};">
+                <view wx:for="{{item.text}}" wx:key="{{index}}">{{item}}</view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="textRight">
+    <view class="section_right" style="background-image: {{item.url}};">
+        <view class="sectionName sectionName_right" wx:if="{{item.name&&item.firstFlag}}">{{item.name}}</view>
+        <view class="sectionText sectionText_right" style="background-image: {{item.triangle}}; ">
+            <view class="section_right_p" style="background-color: {{item.color}};">
+                <view wx:for="{{item.text}}" wx:key="{{index}}">{{item}}</view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="textLeft">
+    <view class="section_left" style="background-image: {{item.url}}; ">
+        <view class="sectionName sectionName_left" wx:if="{{item.name&&item.firstFlag}}">{{item.name}}</view>
+        <view class="sectionText sectionText_left" style="background-image: {{item.triangle}};">
+            <view class="section_left_p" style="background-color: {{item.color}};">
+                <view wx:for="{{item.text}}" wx:key="{{index}}">{{item}}</view>
+            </view>
+        </view>
+    </view>
+</template>
+<view class="newsContent">
+    <view class="visiblePart">
+        <block wx:for="{{contentOne}}" wx:key="{{index}}">
+            <template is="textLeft" data="{{item:item}}" wx:if="{{item.type==='text_left'&&item.flag==='norepeat'}}"></template>
+            <template is="textLeft2" data="{{item:item}}" wx:if="{{item.type==='text_left'&&item.flag==='repeat'}}"></template>
+            <template is="textRight" data="{{item:item}}" wx:if="{{item.type==='text_right'&&item.flag==='norepeat'}}"></template>
+            <template is="textRight2" data="{{item:item}}" wx:if="{{item.type==='text_right'&&item.flag==='repeat'}}"></template>
+            <template is="imageOne" data="{{item:item}}" wx:if="{{item.type==='img'}}"></template>
+            <template is="emojiLeft" data="{{item:item}}" wx:if="{{item.type==='expression_left'&&item.flag==='norepeat'}}"></template>
+            <template is="emojiLeft2" data="{{item:item}}" wx:if="{{item.type==='expression_left'&&item.flag==='repeat'}}"></template>
+            <template is="emojiRight" data="{{item:item}}" wx:if="{{item.type==='expression_right'&&item.flag==='norepeat'}}"></template>
+            <template is="emojiRight2" data="{{item:item}}" wx:if="{{item.type==='expression_right'&&item.flag==='repeat'}}"></template>
+            <template is="sequence" data="{{item:item}}" wx:if="{{item.type==='sequence'}}"></template>
+        </block>
+    </view>
+</view>

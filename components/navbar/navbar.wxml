@@ -1,0 +1,12 @@
+<view class="navbar">
+    <view bindtap="navigationTo" class="navbar-item {{indexActive?'active':''}}" data-navkey="index" data-navurl="/pages/index/index">
+        <image src="../../assets/index-red.png" wx:if="{{indexActive}}"></image>
+        <image src="../../assets/index.png" wx:else></image>
+        <text>精选</text>
+    </view>
+    <view bindtap="navigationTo" class="navbar-item {{favouritesActive?'active':''}}" data-navkey="favourites" data-navurl="/pages/favourites/favourites">
+        <image src="../../assets/fav-color.png" wx:if="{{favouritesActive}}"></image>
+        <image src="../../assets/fav.png" wx:else></image>
+        <text>收藏</text>
+    </view>
+</view>

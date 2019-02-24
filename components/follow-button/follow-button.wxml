@@ -1,0 +1,13 @@
+<view class="follow-button" wx:if="{{buttonShow==='on'}}">
+    <view class="avatar">
+        <image mode="aspectFill" src="{{avatarUrl}}"></image>
+    </view>
+    <view class="info">
+        <view class="name">{{accountName}}</view>
+        <view class="tips">{{avatarTips}}</view>
+        <view class="time">{{sinceTime}}</view>
+    </view>
+    <view class="button">
+        <button openType="contact">{{buttonText}}</button>
+    </view>
+</view>

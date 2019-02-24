@@ -1,0 +1,10 @@
+<navigator appId="{{adFirstList.appId}}" bindsuccess="bindsuccess" openType="navigate" path="{{adFirstList.wx_url}}" target="miniProgram" wx:if="{{adFirstList.type==='1'}}">
+    <view class="{{adFirstList.fromPage?'ad_article':'ad-self'}}">
+        <image class="ad-image" mode="aspectFill" src="{{adFirstList.ad_img}}"></image>
+    </view>
+</navigator>
+<view bindtap="go_adself" wx:if="{{adFirstList.type==='0'}}">
+    <view class="ad-self">
+        <image class="ad-image" mode="aspectFill" src="{{adFirstList.ad_img}}"></image>
+    </view>
+</view>

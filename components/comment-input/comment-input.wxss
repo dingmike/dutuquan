@@ -1,0 +1,62 @@
+.input-box {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: #ffffff;
+    border-top: 1px solid #f0f0f0;
+}
+
+.input-box .replt-tip,.input-box .input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    color: #55595f;
+}
+
+.input-box .input button:first-child {
+    width: 85%;
+    background-color: transparent;
+}
+
+.input-box .input button:last-child {
+    width: 12%;
+    background-color: transparent;
+    overflow: visible;
+}
+
+.input-box .replt-tip {
+    background-color: #f0f0f0;
+    font-size: 28rpx;
+    border-bottom: 1px solid #d0d0d0;
+    padding: 15rpx 40rpx;
+}
+
+.input-box .input {
+    padding: 25rpx 30rpx;
+}
+
+.input-box .input input {
+    font-size: 32rpx;
+    width: 100%;
+    border-bottom: 1px solid #c8c8c8;
+}
+
+.input-box .input text {
+    font-size: 35rpx;
+}
+
+button {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+    line-height: 0;
+}
+
+button::after {
+    border: none;
+}
